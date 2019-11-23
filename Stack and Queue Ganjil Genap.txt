@@ -1,0 +1,99 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace modul7_kel19
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int pilihan;
+            int data, data1;
+            Queue genap = new Queue();
+            Queue ganjil = new Queue();
+            //looping until false condition
+            do
+            {
+                //Displaying Menu
+                Console.WriteLine("---Ini Queue-- -");
+                Console.WriteLine("1. ENQUEUE Item");
+                Console.WriteLine("2. DEQUEUE Item");
+                Console.WriteLine("3. Lihat Daftar Data");
+                Console.WriteLine("4. Lihat Data Teratas");
+                Console.Write("Masukkan Pilihan : ");
+                pilihan = int.Parse(Console.ReadLine());
+                //condition for choice
+                if (pilihan == 1)
+                {
+                    Console.Write("Data yang ditambahkan : ");
+                    data = int.Parse(Console.ReadLine());
+                    data1 = data;
+                    
+                    if (data % 2 == 0)
+                    {
+                        genap.Enqueue(data);
+                        
+                    }
+                    else if (data % 2 != 0)
+                    {
+                        ganjil.Enqueue(data1);
+                    }
+                    else
+                    {
+                        Console.WriteLine("MASUKAN TIDAK ADA!");
+                    }
+                    Console.WriteLine("");
+                }
+                else if (pilihan == 2)
+                {
+                    Console.WriteLine("4. Lihat Data Teratas");
+                    Console.Write("Masukkan Pilihan : ");
+                    pilihan = int.Parse(Console.ReadLine());
+                    if (pilihan == 1)
+                    {
+                        genap.Dequeue();
+                        Console.WriteLine("");
+                    }
+                    else if (pilihan == 2)
+                    {
+                        ganjil.Dequeue();
+                        Console.WriteLine("");
+                    }
+                }
+                else if (pilihan == 3)
+                {
+                    Console.Write("\nGenap = ");
+                    foreach (int value in genap)
+                    {
+                        Console.Write(value + " ");
+                    }
+                    Console.WriteLine();
+                    Console.Write("Ganjil = ");
+                    foreach (int halo in ganjil)
+                    {
+                        Console.Write(halo + " ");
+                    }
+
+
+                    Console.WriteLine("\n");
+                }
+                else if (pilihan == 4)
+                {
+                    Console.WriteLine("Data teratas pada data genap : " + genap.Peek());
+                    Console.WriteLine("");
+                    Console.WriteLine("Data teratas pada data ganjil : " + ganjil.Peek());
+                    Console.WriteLine("");
+                }
+                else
+                {
+                    Console.WriteLine("Pilihan Tidak Ada!!");
+                }//end of condition
+            } while (pilihan != 0);//end looping
+        }
+    }
+}
